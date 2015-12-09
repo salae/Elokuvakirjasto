@@ -1,0 +1,24 @@
+<h2>Lisää elokuva</h2>
+   <form name="addLomake" novalidate ng-submit="addMovie()">
+     <p>Nimi:           
+     <input type="text" ng-model="name"  name="name" required /><br>     
+     <span ng-show="addLomake.name.$error.required && addLomake.name.$dirty">Anna elokuvan nimi!</span>     
+     </p>
+
+     <p>Ohjaaja:            
+     <input type="text" ng-model="director" name="director" required /><br>
+     <span ng-show="addLomake.director.$error.required && addLomake.director.$dirty">Anna ohjaajan nimi!</span>
+     </p>
+
+     <p>Julkaisuvuosi:
+     <input type="text" ng-model="release" name="release" required ng-pattern="/^\d{4}$/" /><br> 
+     <span ng-show="(addLomake.release.$error.required || addLomake.release.$invalid) && addLomake.release.$dirty">Anna julkaisuvuosi!</span>
+     </p>
+
+     <p>Kuvaus:
+     <input type="textarea" ng-model="description" name="description" required /><br>       
+     <span ng-show="addLomake.description.$error.required && addLomake.description.$dirty">Anna kuvaus!</span>
+     </p>
+
+     <button type="submit"  ng-disabled="addLomake.$invalid">Lisää</button>
+   </form>
